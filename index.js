@@ -1,7 +1,7 @@
 require('dotenv').config()
 const fetch = require('node-fetch');
 const moment = require('moment');
-const argv = require('yargs').array('i').argv
+const { argv } = require('yargs').array('i')
 
 const isLocationZip = location => !isNaN(location)
 const getURL = location => `${process.env.OPENWEATHER_BASE_URL}?${isLocationZip(location) ? `zip` : `q`}=${location}&appid=${process.env.OPENWEATHER_API_KEY}`
